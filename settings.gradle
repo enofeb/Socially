@@ -1,0 +1,3 @@
+rootProject.name = "Socially"
+include ':app'
+include ':socially'

@@ -23,10 +23,6 @@ class MainActivity : AppCompatActivity() {
                     Log.e("ELLO", rule.name)
                     Log.e("ELLO", word)
                 }
-                is Rule.Custom -> {
-                    Log.e("ELLO", rule.name)
-                    Log.e("ELLO", word)
-                }
             }
 
         }

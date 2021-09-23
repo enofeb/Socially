@@ -12,11 +12,15 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import com.enofeb.socially.R
 
+typealias OnTextClickListener = ((String) -> Unit)
+
 class SocialTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.socialTextViewStyle
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
+
+    var onTextClickListener: OnTextClickListener? = null
 
     init {
 
@@ -36,12 +40,13 @@ class SocialTextView @JvmOverloads constructor(
             if (regexHashtag.matches(word) || regexMention.matches(word)) {
                 val clickableSpan = object : ClickableSpan() {
                     override fun updateDrawState(textPaint: TextPaint) {
-                        textPaint.color = ContextCompat.getColor(context,R.color.colorBlue)
+                        textPaint.color = ContextCompat.getColor(context, R.color.colorBlue)
                     }
 
                     override fun onClick(view: View) {
                         Selection.setSelection((view as TextView).text as Spannable, 0)
                         view.invalidate()
+                        onTextClickListener?.invoke(word.replace(word.first().toString(), ""))
                     }
                 }
                 spannableString.setSpan(

@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 import com.enofeb.socially.R
 import com.enofeb.socially.rule.Rule
 
-typealias OnTextClickListener = ((String) -> Unit)
+typealias OnTextClickListener = ((String, Rule) -> Unit)
 
 class SocialTextView @JvmOverloads constructor(
     context: Context,
@@ -51,7 +51,7 @@ class SocialTextView @JvmOverloads constructor(
         )
     }
 
-    private fun setClickableSpannable(word: String) {
+    private fun setClickableSpannable(word: String, rule: Rule) {
         val clickableSpan = object : ClickableSpan() {
             override fun updateDrawState(textPaint: TextPaint) {
                 textPaint.color = ContextCompat.getColor(context, R.color.colorBlue)
@@ -60,7 +60,10 @@ class SocialTextView @JvmOverloads constructor(
             override fun onClick(view: View) {
                 Selection.setSelection((view as TextView).text as Spannable, 0)
                 view.invalidate()
-                onTextClickListener?.invoke(word.replace(word.first().toString(), ""))
+                onTextClickListener?.invoke(
+                    word.replace(word.first().toString(), ""),
+                    rule
+                )
             }
         }
         spannableString.setSpan(
@@ -78,7 +81,7 @@ class SocialTextView @JvmOverloads constructor(
         } else {
             ruleList.forEach { rule ->
                 if (rule.regex.matches(word)) {
-                    setClickableSpannable(word)
+                    setClickableSpannable(word, rule)
                 } else {
                     setSpannable(word)
                 }

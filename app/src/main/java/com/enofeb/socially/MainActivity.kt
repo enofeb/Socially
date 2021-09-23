@@ -13,9 +13,34 @@ class MainActivity : AppCompatActivity() {
 
         val socialThrowable = findViewById<SocialTextView>(R.id.socialTextView)
 
-        socialThrowable.addRules(Rule.Hashtag(), Rule.Mention())
+        socialThrowable.addRules(
+            Rule.Custom(
+                "Custom1",
+                "(#[A-Za-z0-9-_]+)".toRegex(),
+                R.color.colorBlue
+            ),
+            Rule.Custom(
+                "Custom2",
+                "(@[A-Za-z0-9-_]+)".toRegex(),
+                R.color.colorBlue
+            )
+        )
 
-        socialThrowable.onTextClickListener = {
+        socialThrowable.onTextClickListener = { word, rule ->
+            when (rule) {
+                is Rule.Hashtag -> {
+                    Log.e("ELLO", rule.name)
+                    Log.e("ELLO", word)
+                }
+                is Rule.Mention -> {
+                    Log.e("ELLO", rule.name)
+                    Log.e("ELLO", word)
+                }
+                is Rule.Custom -> {
+                    Log.e("ELLO", rule.name)
+                    Log.e("ELLO", word)
+                }
+            }
 
         }
     }

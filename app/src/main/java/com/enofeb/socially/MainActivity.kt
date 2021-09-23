@@ -18,6 +18,11 @@ class MainActivity : AppCompatActivity() {
                 "Custom1",
                 "(#[A-Za-z0-9-_]+)".toRegex(),
                 R.color.colorBlue
+            ),
+            Rule.Custom(
+                "Custom2",
+                "(#[A-Za-z0-9-_]+)".toRegex(),
+                R.color.colorBlue
             )
         )
 

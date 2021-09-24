@@ -1,6 +1,7 @@
 package com.enofeb.socially.view
 
 import android.content.Context
+import android.graphics.Color
 import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
@@ -8,6 +9,7 @@ import android.util.AttributeSet
 import android.util.Patterns
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import com.enofeb.socially.R
@@ -26,9 +28,99 @@ class SocialTextView @JvmOverloads constructor(
 
     private val spannableString = SpannableString(this.text)
 
+    @ColorInt
+    private var _hashTagColor = Color.BLUE
+
+    @ColorInt
+    private var _mentionColor = Color.BLUE
+
+    @ColorInt
+    private var _phoneNumberColor = Color.BLUE
+
+    @ColorInt
+    private var _mailColor = Color.BLUE
+
+    @ColorInt
+    private var _webLinkColor = Color.BLUE
+
     private var startIndexOfLink = -1
 
+    var hashTagColor: Int
+        @ColorInt get() = _hashTagColor
+        set(@ColorInt value) {
+            _hashTagColor = value
+        }
+
+    var mentionColor: Int
+        @ColorInt get() = _mentionColor
+        set(@ColorInt value) {
+            _mentionColor = value
+        }
+
+    var phoneNumberColor: Int
+        @ColorInt get() = _phoneNumberColor
+        set(@ColorInt value) {
+            _phoneNumberColor = value
+        }
+
+    var mailColor: Int
+        @ColorInt get() = _mailColor
+        set(@ColorInt value) {
+            _mailColor = value
+        }
+
+    var webLinkColor: Int
+        @ColorInt get() = _webLinkColor
+        set(@ColorInt value) {
+            _webLinkColor = value
+        }
+
     var onTextClickListener: OnTextClickListener? = null
+
+    init {
+        obtainStyledAttributes(attrs, defStyleAttr)
+    }
+
+    private fun obtainStyledAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
+        val typedArray = context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.SocialTextView,
+            defStyleAttr,
+            0
+        )
+
+        try {
+            hashTagColor = typedArray.getColor(
+                R.styleable.SocialTextView_hashTagColor,
+                hashTagColor
+            )
+
+            mentionColor = typedArray.getColor(
+                R.styleable.SocialTextView_mentionColor,
+                mentionColor
+            )
+
+            phoneNumberColor = typedArray.getColor(
+                R.styleable.SocialTextView_phoneNumberColor,
+                phoneNumberColor
+            )
+
+            mailColor = typedArray.getColor(
+                R.styleable.SocialTextView_mailColor,
+                mailColor
+            )
+
+            webLinkColor = typedArray.getColor(
+                R.styleable.SocialTextView_webLinkColor,
+                webLinkColor
+            )
+
+        } catch (e: Exception) {
+            // ignored
+        } finally {
+            typedArray.recycle()
+        }
+    }
 
     private fun start() {
         val words = this.text.split("\\s+".toRegex()).map { word ->

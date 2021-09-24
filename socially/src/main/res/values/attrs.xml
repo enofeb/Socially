@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <attr name="socialTextViewStyle" format="reference" />
+
+    <declare-styleable name="SocialTextView">
+        <attr name="hashTagColor" format="color" />
+        <attr name="mentionColor" format="color" />
+        <attr name="phoneNumberColor" format="color" />
+        <attr name="mailColor" format="color" />
+        <attr name="webLinkColor" format="color" />
+    </declare-styleable>
+
 </resources>

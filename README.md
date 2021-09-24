@@ -82,7 +82,7 @@ socialTextView.onTextClickListener = { word, rule ->
 ```
 
 ## Download
-Add Jitpack to your root `build.gradle` repositories.
+* Add Jitpack to your root `build.gradle` repositories.
 ```groovy
 allprojects {
     repositories {
@@ -91,7 +91,7 @@ allprojects {
 }
 ```
 
-Add Socially to your module dependencies.
+* Add Socially to your module dependencies.
 ```groovy
 dependencies {
     implementation 'com.github.enofeb:Socially:1.0'

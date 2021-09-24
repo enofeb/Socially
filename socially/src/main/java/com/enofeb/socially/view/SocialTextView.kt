@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.content.ContextCompat
 import com.enofeb.socially.R
 import com.enofeb.socially.rule.Rule
 import java.util.regex.Pattern
@@ -199,10 +198,5 @@ class SocialTextView @JvmOverloads constructor(
     fun addRules(vararg rules: Rule) {
         ruleList.addAll(rules)
         start()
-    }
-
-    companion object {
-        private const val HASHTAG_REGEX = "(#[A-Za-z0-9-_]+)"
-        private const val MENTION_REGEX = "(@[A-Za-z0-9-_]+)"
     }
 }

@@ -68,7 +68,7 @@ socialTextView.onTextClickListener = { word, rule ->
 
                 }
             }
-        }
+}
 ```
 ## XML Attributes
 

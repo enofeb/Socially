@@ -16,11 +16,15 @@ class MainActivity : AppCompatActivity() {
         val socialThrowable = findViewById<SocialTextView>(R.id.socialTextView)
 
         socialThrowable.addRules(
-            Rule.Hashtag,
             Rule.Mention,
             Rule.PhoneNumber,
             Rule.Mail,
-            Rule.WebLink
+            Rule.WebLink,
+            Rule.Custom(
+                "Hash",
+                "(#[A-Za-z0-9-_]+)",
+                this.getColor(R.color.colorRed)
+            )
         )
 
 

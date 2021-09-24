@@ -1,6 +1,5 @@
 package com.enofeb.socially.rule
 
-import android.graphics.Color
 import android.util.Patterns
 import androidx.annotation.ColorRes
 import com.enofeb.socially.R

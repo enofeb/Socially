@@ -6,7 +6,6 @@ import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.AttributeSet
-import android.util.Patterns
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt

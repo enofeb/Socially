@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
 import com.enofeb.socially.rule.Rule
 import com.enofeb.socially.view.SocialTextView
 import java.util.regex.Pattern
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         val socialTextView = findViewById<SocialTextView>(R.id.socialTextView)
 
         socialTextView.addRules(
+            Rule.Hashtag,
             Rule.Mention,
             Rule.PhoneNumber,
             Rule.Mail,
@@ -31,10 +33,10 @@ class MainActivity : AppCompatActivity() {
         socialTextView.onTextClickListener = { word, rule ->
             when (rule) {
                 is Rule.Hashtag -> {
-
+                    Toast.makeText(this, word, Toast.LENGTH_LONG).show()
                 }
                 is Rule.Mention -> {
-
+                    Toast.makeText(this, word, Toast.LENGTH_LONG).show()
                 }
                 is Rule.Custom -> {
 

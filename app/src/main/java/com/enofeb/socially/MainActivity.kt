@@ -13,37 +13,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val socialThrowable = findViewById<SocialTextView>(R.id.socialTextView)
+        val socialTextView = findViewById<SocialTextView>(R.id.socialTextView)
 
-        socialThrowable.addRules(
+        socialTextView.addRules(
             Rule.Mention,
             Rule.PhoneNumber,
             Rule.Mail,
             Rule.WebLink,
             Rule.Custom(
-                "Hash",
-                "(#[A-Za-z0-9-_]+)",
+                "Date",
+                "^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-([12][0-9]{3})$",
                 this.getColor(R.color.colorRed)
             )
         )
 
 
-        socialThrowable.onTextClickListener = { word, rule ->
+        socialTextView.onTextClickListener = { word, rule ->
             when (rule) {
                 is Rule.Hashtag -> {
-                    Log.e("ELLO", rule.name)
-                    Log.e("ELLO", word)
+
                 }
                 is Rule.Mention -> {
-                    Log.e("ELLO", rule.name)
-                    Log.e("ELLO", word)
+
                 }
                 is Rule.Custom -> {
-                    Log.e("ELLO", rule.name)
-                    Log.e("ELLO", word)
+
                 }
             }
-
         }
     }
 }

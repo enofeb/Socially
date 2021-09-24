@@ -23,16 +23,16 @@ Socially is a textView which is able to create seperate clickable views accordin
 
 ```kotlin
 socialTextView.addRules(
-            Rule.Hashtag,
-            Rule.Mention
-            Rule.PhoneNumber,
-            Rule.Mail,
-            Rule.WebLink,
-            Rule.Custom(
-                "Date",
-                "^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-([12][0-9]{3})$",
-                this.getColor(R.color.colorRed)
-            )
+          Rule.Hashtag,
+          Rule.Mention
+          Rule.PhoneNumber,
+          Rule.Mail,
+          Rule.WebLink,
+          Rule.Custom(
+               "Date",
+               "^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-([12][0-9]{3})$",
+               this.getColor(R.color.colorRed)
+         )
 )
 ```
 
@@ -47,12 +47,28 @@ socialTextView.addRules(
 * It is possible to add Custom regex rule with text color.
 ```kotlin
 socialTextView.addRules(
-Rule.Custom(
-         "Date",
-         "^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-([12][0-9]{3})$",
-         this.getColor(R.color.colorRed)
-         )
+        Rule.Custom(
+            "Date",
+            "^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-([12][0-9]{3})$",
+            this.getColor(R.color.colorRed)
+        )
 )
+```
+* Listen when the user click any text.
+```kotlin
+socialTextView.onTextClickListener = { word, rule ->
+            when (rule) {
+                is Rule.Hashtag -> {
+
+                }
+                is Rule.Mention -> {
+
+                }
+                is Rule.Custom -> {
+
+                }
+            }
+        }
 ```
 ## XML Attributes
 

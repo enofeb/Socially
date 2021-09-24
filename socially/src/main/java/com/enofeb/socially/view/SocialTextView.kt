@@ -157,7 +157,11 @@ class SocialTextView @JvmOverloads constructor(
                         rule.textColor
                     }
                 }
-                textPaint.color = textColor
+
+                textPaint.apply {
+                    this.isUnderlineText = rule == Rule.WebLink
+                    color = textColor
+                }
             }
 
             override fun onClick(view: View) {

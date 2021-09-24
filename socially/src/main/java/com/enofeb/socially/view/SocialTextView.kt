@@ -5,12 +5,14 @@ import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.AttributeSet
+import android.util.Patterns
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import com.enofeb.socially.R
 import com.enofeb.socially.rule.Rule
+import java.util.regex.Pattern
 
 typealias OnTextClickListener = ((String, Rule) -> Unit)
 
@@ -80,7 +82,7 @@ class SocialTextView @JvmOverloads constructor(
             setSpannable(word)
         } else {
             ruleList.forEach { rule ->
-                if (rule.regex.matches(word)) {
+                if (Pattern.compile(rule.regex).matcher(word).matches()) {
                     setClickableSpannable(word, rule)
                 } else {
                     setSpannable(word)

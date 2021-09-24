@@ -14,11 +14,10 @@ class MainActivity : AppCompatActivity() {
         val socialThrowable = findViewById<SocialTextView>(R.id.socialTextView)
 
         socialThrowable.addRules(
-            Rule.Custom(
-                "Custom1",
-                "(#[A-Za-z0-9-_]+)".toRegex(),
-                R.color.colorBlue
-            )
+            Rule.Hashtag,
+            Rule.Mention,
+            Rule.PhoneNumber,
+            Rule.Mail
         )
 
         socialThrowable.onTextClickListener = { word, rule ->

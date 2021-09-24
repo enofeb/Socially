@@ -1,7 +1,9 @@
 package com.enofeb.socially.rule
 
+import android.graphics.Color
 import android.util.Patterns
 import androidx.annotation.ColorRes
+import com.enofeb.socially.R
 
 sealed class Rule {
 
@@ -10,7 +12,7 @@ sealed class Rule {
     abstract val regex: String
 
     @ColorRes
-    open val textColor: Int? = null
+    open val textColor: Int = R.color.colorBlue
 
     object Hashtag : Rule() {
         override val name = "Hashtag"
@@ -40,6 +42,6 @@ sealed class Rule {
     data class Custom(
         override val name: String,
         override val regex: String,
-        override val textColor: Int?
+        override val textColor: Int
     ) : Rule()
 }

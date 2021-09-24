@@ -148,7 +148,17 @@ class SocialTextView @JvmOverloads constructor(
     private fun setClickableSpannable(word: String, rule: Rule) {
         val clickableSpan = object : ClickableSpan() {
             override fun updateDrawState(textPaint: TextPaint) {
-                textPaint.color = ContextCompat.getColor(context, R.color.colorBlue)
+                val textColor = when (rule) {
+                    is Rule.Hashtag -> hashTagColor
+                    is Rule.Mention -> mentionColor
+                    is Rule.PhoneNumber -> phoneNumberColor
+                    is Rule.Mail -> mailColor
+                    is Rule.WebLink -> webLinkColor
+                    is Rule.Custom -> {
+                        rule.textColor
+                    }
+                }
+                textPaint.color = textColor
             }
 
             override fun onClick(view: View) {

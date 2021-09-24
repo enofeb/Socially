@@ -11,9 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I am #Spider @Enes99 +905512026461 eneszor95@gmail.com https://www.facebook.com/"
+        app:hashTagColor="@color/colorGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:mailColor="@color/colorOrange"
+        app:mentionColor="@color/colorBlue"
+        app:phoneNumberColor="@color/colorOrange"
+        app:webLinkColor="@color/colorRed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

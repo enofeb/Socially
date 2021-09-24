@@ -73,9 +73,9 @@ socialTextView.onTextClickListener = { word, rule ->
 ## XML Attributes
 
 ```xml
-    <attr name="hashTagColor" format="color" />
-    <attr name="mentionColor" format="color" />
-    <attr name="phoneNumberColor" format="color" />
-    <attr name="mailColor" format="color" />
-    <attr name="webLinkColor" format="color" />
+<attr name="hashTagColor" format="color" />
+<attr name="mentionColor" format="color" />
+<attr name="phoneNumberColor" format="color" />
+<attr name="mailColor" format="color" />
+<attr name="webLinkColor" format="color" />
 ```

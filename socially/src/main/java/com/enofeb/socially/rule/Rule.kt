@@ -24,15 +24,17 @@ sealed class Rule {
 
     object PhoneNumber : Rule() {
         override val name = "PhoneNumber"
-        override val regex = "^[+(00)][0-9]{6,14}$"
+        override val regex = Patterns.PHONE.toRegex().pattern
     }
 
     object Mail : Rule() {
         override val name = "Mail"
-        override val regex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$"
+        override val regex = Patterns.EMAIL_ADDRESS.toRegex().pattern
+    }
+
+    object WebLink : Rule() {
+        override val name = "Link"
+        override val regex = Patterns.WEB_URL.toRegex().pattern
     }
 
     data class Custom(

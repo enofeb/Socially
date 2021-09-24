@@ -3,8 +3,10 @@ package com.enofeb.socially
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import com.enofeb.socially.rule.Rule
 import com.enofeb.socially.view.SocialTextView
+import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +19,10 @@ class MainActivity : AppCompatActivity() {
             Rule.Hashtag,
             Rule.Mention,
             Rule.PhoneNumber,
-            Rule.Mail
+            Rule.Mail,
+            Rule.WebLink
         )
+
 
         socialThrowable.onTextClickListener = { word, rule ->
             when (rule) {

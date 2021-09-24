@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.enofeb.socially"
+        applicationId "com.example.socially"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 1

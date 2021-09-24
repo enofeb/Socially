@@ -1,13 +1,10 @@
-package com.enofeb.socially
+package com.example.socially
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
 import android.widget.Toast
 import com.enofeb.socially.rule.Rule
 import com.enofeb.socially.view.SocialTextView
-import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

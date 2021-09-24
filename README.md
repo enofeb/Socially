@@ -7,6 +7,8 @@ Socially
 
 Socially is a textView which is able to create separate clickable views according to your requirements.
 
+![Alt text](https://github.com/enofeb/Socially/blob/dev/screenshot/demo.gif "Sample screenshot")
+
 # Simple Usage
 
 ```kotlin

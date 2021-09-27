@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-
         socialTextView.onTextClickListener = { word, rule ->
             when (rule) {
                 is Rule.Hashtag -> {

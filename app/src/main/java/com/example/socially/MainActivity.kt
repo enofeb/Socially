@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        socialTextView.socialText = "I am #Spider @Enes99 +905512026461 eneszor95@gmail.com https://www.lichess.org"
+
+
         socialTextView.onTextClickListener = { word, rule ->
             when (rule) {
                 is Rule.Hashtag -> {

@@ -24,7 +24,7 @@ class SocialTextView @JvmOverloads constructor(
 
     private val ruleList: MutableList<Rule> = mutableListOf()
 
-    private val spannableString = SpannableString(this.text)
+    private lateinit var spannableString: SpannableString
 
     @ColorInt
     private var _hashTagColor = Color.BLUE
@@ -42,6 +42,14 @@ class SocialTextView @JvmOverloads constructor(
     private var _webLinkColor = Color.BLUE
 
     private var startIndexOfLink = -1
+
+
+    var socialText: CharSequence?
+        get() = this.text
+        set(value) {
+            this.text = value
+            start()
+        }
 
     var hashTagColor: Int
         @ColorInt get() = _hashTagColor
@@ -121,6 +129,9 @@ class SocialTextView @JvmOverloads constructor(
     }
 
     private fun start() {
+
+        spannableString = SpannableString(this.text)
+
         val words = this.text.split("\\s+".toRegex()).map { word ->
             word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
         }
@@ -197,6 +208,5 @@ class SocialTextView @JvmOverloads constructor(
 
     fun addRules(vararg rules: Rule) {
         ruleList.addAll(rules)
-        start()
     }
 }

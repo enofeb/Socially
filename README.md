@@ -14,24 +14,23 @@ Socially is a textView which is able to create separate clickable views accordin
 </p>
 
 # Simple Usage
-
+1) Add SocialTextView to your xml.
 ```kotlin
 <com.enofeb.socially.view.SocialTextView
         android:id="@+id/socialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I am #Spider @Enes99 +905512026461 eneszor95@gmail.com https://www.facebook.com/"
         app:hashTagColor="@color/colorGreen"
         app:mailColor="@color/colorOrange"
         app:mentionColor="@color/colorBlue"
         app:phoneNumberColor="@color/colorOrange"
         app:webLinkColor="@color/colorRed" />
 ```
-
+2) Add your rules.
 ```kotlin
 socialTextView.addRules(
           Rule.Hashtag,
-          Rule.Mention
+          Rule.Mention,
           Rule.PhoneNumber,
           Rule.Mail,
           Rule.WebLink,
@@ -42,6 +41,12 @@ socialTextView.addRules(
          )
 )
 ```
+3) And, finally set your text.
+```kotlin
+socialTextView.socialText = "I am #Spider @Enes99 +905512026461 eneszor95@gmail.com https://www.lichess.org"
+```
+
+NOTES: Please get follow these three steps while setting up this  library.
 
 ## Features
 * It already supports hashtag, mention, phone number, mail and weblinks. To enable them , you need to add rule which you want to use.
@@ -100,7 +105,7 @@ allprojects {
 * Add Socially to your module dependencies.
 ```groovy
 dependencies {
-    implementation 'com.github.enofeb:Socially:1.0.7'
+    implementation 'com.github.enofeb:Socially:1.0.8'
 }
 ```
 

@@ -30,7 +30,7 @@ Socially is a textView which is able to create separate clickable views accordin
 ```kotlin
 socialTextView.addRules(
           Rule.Hashtag,
-          Rule.Mention
+          Rule.Mention,
           Rule.PhoneNumber,
           Rule.Mail,
           Rule.WebLink,
@@ -105,7 +105,7 @@ allprojects {
 * Add Socially to your module dependencies.
 ```groovy
 dependencies {
-    implementation 'com.github.enofeb:Socially:1.0.7'
+    implementation 'com.github.enofeb:Socially:1.0.8'
 }
 ```
 

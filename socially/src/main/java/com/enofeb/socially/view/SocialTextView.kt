@@ -41,8 +41,7 @@ class SocialTextView @JvmOverloads constructor(
     @ColorInt
     private var _webLinkColor = Color.BLUE
 
-    private var startIndexOfLink = -1
-
+    private var startIndexOfLink = 0
 
     var socialText: CharSequence?
         get() = this.text
@@ -135,9 +134,8 @@ class SocialTextView @JvmOverloads constructor(
         val words = this.text.split("\\s+".toRegex()).map { word ->
             word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
         }
-
         words.forEach { word ->
-            startIndexOfLink = this.text.toString().indexOf(word, startIndexOfLink + 1)
+            startIndexOfLink = this.text.toString().indexOf(word)
             checkRuleAndSpan(word)
         }
 

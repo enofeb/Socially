@@ -105,7 +105,7 @@ allprojects {
 * Add Socially to your module dependencies.
 ```groovy
 dependencies {
-    implementation 'com.github.enofeb:Socially:1.0.8'
+    implementation 'com.github.enofeb:Socially:1.0.9'
 }
 ```
 
